@@ -1,4 +1,4 @@
-import { Text, Flex, Icon } from '@chakra-ui/react';
+import { Text, Flex, Icon, Image } from '@chakra-ui/react';
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { MenuItem } from '@/types/menu';
 
@@ -9,6 +9,7 @@ type ItemMenuProps = {
   index: number;
   menuItem: {
     label: string;
+    icon?: string;
   };
 };
 
@@ -22,6 +23,7 @@ function ItemMenu({ onClick, subItems, openMenus, index, menuItem }: ItemMenuPro
       justifyContent={{ base: 'space-between' }}
     >
       <Flex>
+        <Image marginRight={{base: '16px'}} alt='icon' src={menuItem?.icon} />
         <Text _hover={{ color: "gray.200" }}>{menuItem.label}</Text>
       </Flex>
       {subItems && (

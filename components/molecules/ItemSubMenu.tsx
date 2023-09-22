@@ -19,7 +19,7 @@ function ItemSubMenu({ onClick, selectedItem, subIndex, subItem }: ItemSubMenuPr
       height={{ base: "52px" }}
       alignItems="center"
       cursor="pointer"
-      borderLeftWidth="4px"
+      borderLeftWidth="2px"
       borderLeftColor={selectedItem === subItem?.id ? "red.500" : "white"}
       transition="border-left-color 0.3s ease-in-out"
       paddingLeft={{ base: "14px" }}

@@ -4,5 +4,11 @@ import { colors } from './colors';
 
 export const theme = extendTheme({
   colors: colors,
-  components: {},
+  components: {
+    Input: {
+      search: {
+        borderRadius: 0
+      },
+    },
+  },
 });

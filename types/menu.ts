@@ -3,4 +3,5 @@ export interface MenuItem {
   id?: string;
   link?: string;
   subItems?: MenuItem[];
+  icon?: any;
 }

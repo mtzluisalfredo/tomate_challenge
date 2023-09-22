@@ -1,9 +1,11 @@
+import images from "@/assets";
 import { MenuItem } from "@/types/menu";
 
 export const menuData: MenuItem[] = [
-  { label: "Dashboard" },
+  { label: "Dashboard", icon: images.dashboard },
   {
     label: "Catálogo",
+    icon: images.catalago,
     subItems: [
       { label: "Categorías" },
       { label: "Productos y precios" },
@@ -14,6 +16,7 @@ export const menuData: MenuItem[] = [
   },
   {
     label: "Ventas",
+    icon: images.ventas,
     subItems: [
       { label: "Por venta" },
       { label: "Por nota" },
@@ -23,9 +26,10 @@ export const menuData: MenuItem[] = [
       { label: "Motivos de cancelación" },
     ],
   },
-  { label: 'Tipo de ventas' },
+  { label: 'Tipo de ventas', icon: images.tipos_de_ventas },
   {
     label: 'Caja',
+    icon: images.caja,
     subItems: [
       { label: "General" },
       { label: "Apertura" },
@@ -33,9 +37,10 @@ export const menuData: MenuItem[] = [
       { label: "Cierre" },
     ],
   },
-  { label: 'Reservaciones' },
+  { label: 'Reservaciones', icon: images.reservaciones },
   {
     label: 'Tableros',
+    icon: images.tablero,
     subItems: [
       { label: "General" },
       { label: "Desactivar productos" },
@@ -43,6 +48,7 @@ export const menuData: MenuItem[] = [
   },
   {
     label: 'Usuarios',
+    icon: images.usuarios,
     subItems: [
       { label: "Perfiles" },
       { label: "Empleados" },
@@ -52,11 +58,12 @@ export const menuData: MenuItem[] = [
   },
   {
     label: 'Mesas',
+    icon: images.mesas,
     subItems: [
       { label: "Zonas" },
       { label: "Asignación" },
       { label: "Creación" },
     ],
   },
-  { label: 'Reportes' },
+  { label: 'Reportes', icon: images.reportes, },
 ];
