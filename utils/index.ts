@@ -1,4 +1,5 @@
 import { MenuItem } from "@/types/menu";
+import { v4 as uuidv4 } from 'uuid';
 
 export function hexToRgba(hex: string, opacity: number): string | null {
   hex = hex.replace(/^#/, '');
@@ -45,4 +46,11 @@ export function addUniqueIdAndLinkify(menu: MenuItem[], parentLabel = ''): MenuI
 
     return newItem;
   });
+}
+
+
+
+
+export function keyc(): string {
+  return uuidv4();
 }

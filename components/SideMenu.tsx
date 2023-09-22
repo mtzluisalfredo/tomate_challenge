@@ -1,6 +1,6 @@
 import { Box, Collapse, Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { addUniqueIdAndLinkify } from "@/utils";
+import { addUniqueIdAndLinkify, keyc } from "@/utils";
 import { menuConfig, menuData } from "@/constants/menu";
 import ItemMenu from "./molecules/ItemMenu";
 import ItemSubMenu from "./molecules/ItemSubMenu";
@@ -36,7 +36,7 @@ function SidebarMenu() {
     <Flex color="white" flexDirection={{ base: 'column' }} flex={1} height={{ base: '100%' }} justifyContent={{ base: 'space-between' }}>
       <Box>
         {menuWithLinks.map((menuItem, index) => (
-          <Box key={index}>
+          <Box key={keyc()}>
             <ItemMenu
               subItems={menuItem.subItems}
               onClick={() => {
@@ -52,6 +52,7 @@ function SidebarMenu() {
                 <Box paddingLeft={{ base: "14px" }}>
                   {menuItem.subItems.map((subItem, subIndex) => (
                     <ItemSubMenu
+                      key={keyc()}
                       onClick={() => {
                         const subLinkPage = subItem?.link || '';
                         handleSubItemClick(subItem?.id || '', subLinkPage);
@@ -71,6 +72,7 @@ function SidebarMenu() {
         {menuHelp.map((menuItem, index) => {
           return (
             <ItemMenu
+              key={keyc()}
               onClick={() => {
                 const linkPage = !menuItem?.subItems ? (menuItem?.link || '') : '';
                 router.push(linkPage);
