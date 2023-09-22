@@ -4,7 +4,7 @@ import Layout from "@/components/templates/Layout";
 function Dashboard() {
   return (
     <Layout>
-      <Text fontSize={{base: '40px'}}>Dashboard</Text>
+      <Text fontSize={{ base: '40px' }}>Productos y Precios</Text>
     </Layout>
   );
 }

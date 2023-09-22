@@ -1,17 +1,18 @@
-import { Box, Text, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, useDisclosure } from "@chakra-ui/react";
 import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
 import DarkGradientContainer from "@/components/molecules/DarkGradientContainer";
 import DrawerMenu from "@/components/DrawerMenu";
+import { ReactNode } from "react";
 
-function App() {
+function Layout({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box padding={{ base: '16px' }} bg='shark' minH={{ base: '100vh' }} height={{ base: '100vh' }}>
       <Header onOpen={onOpen} />
 
-      <Box display="flex" marginY={{ base: '16px' }}>
+      <Box display="flex" marginY={{ base: '16px' }} color={{ base: 'white' }}>
         <DarkGradientContainer
           display={{ base: 'none', lg: 'block' }}
           width={{ base: "0", lg: "250px" }}
@@ -22,13 +23,13 @@ function App() {
           <SideMenu />
         </DarkGradientContainer>
 
-        <Box flex="1" p="4">
-          <Text>Contenido de la página</Text>
-        </Box>
+        <Flex flex={1} marginX={{ base: '16px' }} padding={{ base: '16px' }}>
+          {children}
+        </Flex>
       </Box>
       <DrawerMenu onClose={onClose} isOpen={isOpen} />
     </Box>
   );
 }
 
-export default App;
+export default Layout;

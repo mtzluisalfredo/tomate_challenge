@@ -18,18 +18,31 @@ export function hexToRgba(hex: string, opacity: number): string | null {
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
 
-export function addUniqueId(menu: MenuItem[], parentLabel = ''): MenuItem[] {
+export function addUniqueIdAndLinkify(menu: MenuItem[], parentLabel = ''): MenuItem[] {
   let uniqueId = 1;
+
+  const transformLabelToLink = (label: string): string => {
+    const cleanedLabel = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    return cleanedLabel.replace(/\s/g, "_");
+  };
 
   return menu.map((item) => {
     const id = `${parentLabel}-${uniqueId}`;
     uniqueId++;
 
-    const newItem: MenuItem = { ...item, id };
+    let link = `/${transformLabelToLink(item.label)}`;
+
+    if(parentLabel) {
+      link = `${parentLabel}/${transformLabelToLink(item.label)}`;
+    }
+
+    const newItem: MenuItem = { ...item, id, link };
 
     if (item.subItems) {
-      newItem.subItems = addUniqueId(item.subItems, id);
+      newItem.subItems = addUniqueIdAndLinkify(item.subItems, link);
     }
+    console.log("🚀 ~ file: index.ts:44 ~ returnmenu.map ~ newItem:", newItem)
 
     return newItem;
   });
