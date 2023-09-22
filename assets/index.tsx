@@ -1,6 +1,5 @@
 import tomate_logo from './tomate_logo.svg';
 import icon_tomate from './icon_tomate.svg';
-
 import ayuda from './icons/ayuda.svg'
 import caja from './icons/caja.svg'
 import catalago from './icons/catalago.svg'
@@ -14,7 +13,6 @@ import ventas from './icons/ventas.svg'
 import usuarios from './icons/usuarios.svg'
 import reportes from './icons/reportes.svg'
 import mesas from './icons/mesas.svg'
-
 
 const images = {
   tomate_logo: tomate_logo.src,
@@ -32,8 +30,6 @@ const images = {
   ventas: ventas.src,
   reportes: reportes.src,
   mesas: mesas.src,
-
-
 };
 
 export default images;

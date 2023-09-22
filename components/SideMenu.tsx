@@ -1,7 +1,7 @@
 import { Box, Collapse, Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { addUniqueIdAndLinkify } from "@/utils";
-import { menuData } from "@/constants/menu";
+import { menuConfig, menuData } from "@/constants/menu";
 import ItemMenu from "./molecules/ItemMenu";
 import ItemSubMenu from "./molecules/ItemSubMenu";
 import { useRouter } from "next/router";
@@ -30,43 +30,59 @@ function SidebarMenu() {
   };
 
   const menuWithLinks = addUniqueIdAndLinkify(menuData);
+  const menuHelp = addUniqueIdAndLinkify(menuConfig);
 
   return (
-    <Box color="white">
-      {menuWithLinks.map((menuItem, index) => (
-        <Box key={index}>
-          <ItemMenu
-            subItems={menuItem.subItems}
-            onClick={() => {
-              const linkPage = !menuItem?.subItems ? (menuItem?.link || '') : '';
-              handleItemClick(index, linkPage)
-            }}
-            openMenus={openMenus}
-            index={index}
-            menuItem={menuItem}
-          />
-          {menuItem.subItems && (
-            <Collapse in={openMenus.includes(index)}>
-              <Box paddingLeft={{ base: "14px" }}>
-                {menuItem.subItems.map((subItem, subIndex) => (
-                  <ItemSubMenu
-                    onClick={() => {
-                      const subLinkPage = subItem?.link || '';
-                      handleSubItemClick(subItem?.id || '', subLinkPage);
-                    }}
-                    selectedItem={selectedItem}
-                    subIndex={subIndex}
-                    subItem={subItem}
-                  />
-                ))}
-              </Box>
-            </Collapse>
-          )}
-        </Box>
-      ))}
-      <Flex>
-      </Flex>
-    </Box>
+    <Flex color="white" flexDirection={{ base: 'column' }} flex={1} height={{ base: '100%' }} justifyContent={{ base: 'space-between' }}>
+      <Box>
+        {menuWithLinks.map((menuItem, index) => (
+          <Box key={index}>
+            <ItemMenu
+              subItems={menuItem.subItems}
+              onClick={() => {
+                const linkPage = !menuItem?.subItems ? (menuItem?.link || '') : '';
+                handleItemClick(index, linkPage)
+              }}
+              openMenus={openMenus}
+              index={index}
+              menuItem={menuItem}
+            />
+            {menuItem.subItems && (
+              <Collapse in={openMenus.includes(index)}>
+                <Box paddingLeft={{ base: "14px" }}>
+                  {menuItem.subItems.map((subItem, subIndex) => (
+                    <ItemSubMenu
+                      onClick={() => {
+                        const subLinkPage = subItem?.link || '';
+                        handleSubItemClick(subItem?.id || '', subLinkPage);
+                      }}
+                      selectedItem={selectedItem}
+                      subIndex={subIndex}
+                      subItem={subItem}
+                    />
+                  ))}
+                </Box>
+              </Collapse>
+            )}
+          </Box>
+        ))}
+      </Box>
+      <Box paddingTop={{ base: '16px' }} borderTopWidth={{ base: '2px' }} borderTopStyle={{ base: 'solid' }} borderTopColor='#F9F9F933'>
+        {menuHelp.map((menuItem, index) => {
+          return (
+            <ItemMenu
+              onClick={() => {
+                const linkPage = !menuItem?.subItems ? (menuItem?.link || '') : '';
+                router.push(linkPage);
+              }}
+              openMenus={openMenus}
+              index={index}
+              menuItem={menuItem}
+            />
+          )
+        })}
+      </Box>
+    </Flex>
   );
 }
 

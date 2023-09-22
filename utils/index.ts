@@ -33,7 +33,7 @@ export function addUniqueIdAndLinkify(menu: MenuItem[], parentLabel = ''): MenuI
 
     let link = `/${transformLabelToLink(item.label)}`;
 
-    if(parentLabel) {
+    if (parentLabel) {
       link = `${parentLabel}/${transformLabelToLink(item.label)}`;
     }
 
@@ -42,7 +42,6 @@ export function addUniqueIdAndLinkify(menu: MenuItem[], parentLabel = ''): MenuI
     if (item.subItems) {
       newItem.subItems = addUniqueIdAndLinkify(item.subItems, link);
     }
-    console.log("🚀 ~ file: index.ts:44 ~ returnmenu.map ~ newItem:", newItem)
 
     return newItem;
   });

@@ -4,7 +4,7 @@ import { MenuItem } from '@/types/menu';
 
 type ItemMenuProps = {
   onClick: () => void;
-  subItems: MenuItem[] | undefined;
+  subItems?: MenuItem[] | undefined;
   openMenus: number[];
   index: number;
   menuItem: {

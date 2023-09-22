@@ -1,11 +1,9 @@
 import { MenuItem } from "@/types/menu";
 import { Flex, Text } from "@chakra-ui/react";
 
-
-// Definir los tipos para las props
 type ItemSubMenuProps = {
   onClick: () => void;
-  selectedItem: string | number; 
+  selectedItem: string | number;
   subIndex: number;
   subItem: MenuItem;
 };

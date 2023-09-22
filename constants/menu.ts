@@ -67,3 +67,8 @@ export const menuData: MenuItem[] = [
   },
   { label: 'Reportes', icon: images.reportes, },
 ];
+
+export const menuConfig: MenuItem[] = [
+  { label: "Configuración", icon: images.configuracion },
+  { label: "Ayuda", icon: images.ayuda },
+];
