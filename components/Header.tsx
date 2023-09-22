@@ -31,8 +31,12 @@ function Header({ onOpen }: { onOpen: () => void }) {
         <Image height={{ base: '40px', lg: '80px' }} alt='tomate_logo' src={images.tomate_logo} />
       </Flex>
 
-      <Flex width={{ base: '100%' }} alignItems={{ base: 'center' }} justifyContent={{ base: 'flex-end' }}>
-        <InputGroup maxWidth={{ base: '480px' }}>
+      <Flex
+        width={{ base: '100%' }}
+        alignItems={{ base: 'center' }}
+        justifyContent={{ base: 'flex-end' }}
+        flexDirection={{ base: 'column', md: 'row' }}>
+        <InputGroup maxWidth={{ base: '480px' }} marginY={{ base: '24px', md: '0px' }}>
           <InputLeftElement height={{ base: '32px' }} pointerEvents='none' padding={{ base: 0 }}>
             <SearchIcon color='alabasterbg' />
           </InputLeftElement>
@@ -49,12 +53,14 @@ function Header({ onOpen }: { onOpen: () => void }) {
           />
         </InputGroup>
 
-        <Flex marginX={{ base: '16px' }} alignItems={{ base: 'center' }}>
-          <Image boxSize={{ base: '25px' }} alt='notificaciones' src={images.notificaciones} />
-          <Text marginX={{ base: '8px' }} color={{ base: 'white' }}>María Hernándex</Text>
-          <ChevronDownIcon color={{ base: 'white' }} />
+        <Flex width={{ base: '100%', md: 'auto' }} justifyContent={{ base: 'flex-end' }}>
+          <Flex marginX={{ base: '16px' }} alignItems={{ base: 'center' }}>
+            <Image boxSize={{ base: '25px' }} alt='notificaciones' src={images.notificaciones} />
+            <Text marginX={{ base: '8px' }} color={{ base: 'white' }}>María Hernándex</Text>
+            <ChevronDownIcon color={{ base: 'white' }} />
+          </Flex>
+          <Image borderRadius={{ base: '50%' }} boxSize={{ base: '56px' }} src={images.icon_tomate} />
         </Flex>
-        <Image borderRadius={{ base: '50%' }} boxSize={{ base: '56px' }} src={images.icon_tomate} />
       </Flex>
     </DarkGradientContainer>
   )
