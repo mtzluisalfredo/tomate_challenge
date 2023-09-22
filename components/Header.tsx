@@ -50,8 +50,9 @@ function Header({ onOpen }: { onOpen: () => void }) {
         </InputGroup>
 
         <Flex marginX={{ base: '16px' }} alignItems={{ base: 'center' }}>
-          <Text color={{ base: 'white' }}>María Hernándex</Text>
-          <ChevronDownIcon color={{ base: 'white' }} marginLeft={{ base: '8px' }} />
+          <Image boxSize={{ base: '25px' }} alt='notificaciones' src={images.notificaciones} />
+          <Text marginX={{ base: '8px' }} color={{ base: 'white' }}>María Hernándex</Text>
+          <ChevronDownIcon color={{ base: 'white' }} />
         </Flex>
         <Image borderRadius={{ base: '50%' }} boxSize={{ base: '56px' }} src={images.icon_tomate} />
       </Flex>

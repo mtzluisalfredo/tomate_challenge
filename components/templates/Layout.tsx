@@ -15,7 +15,7 @@ function Layout({ children }: { children: ReactNode }) {
       <Box display="flex" marginY={{ base: '16px' }} color={{ base: 'white' }}>
         <DarkGradientContainer
           display={{ base: 'none', lg: 'block' }}
-          width={{ base: "0", lg: "250px" }}
+          width={{ base: "0", lg: "358px" }}
           padding={{ base: '32px 24px' }}
           height="732px"
           overflow={{ base: 'scroll' }}

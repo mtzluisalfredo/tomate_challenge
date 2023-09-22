@@ -1,5 +1,6 @@
 import tomate_logo from './tomate_logo.svg';
 import icon_tomate from './icon_tomate.svg';
+import notificaciones from './notificaciones.svg';
 import ayuda from './icons/ayuda.svg'
 import caja from './icons/caja.svg'
 import catalago from './icons/catalago.svg'
@@ -15,6 +16,7 @@ import reportes from './icons/reportes.svg'
 import mesas from './icons/mesas.svg'
 
 const images = {
+  notificaciones: notificaciones.src,
   tomate_logo: tomate_logo.src,
   usuarios: usuarios.src,
   icon_tomate: icon_tomate.src,
