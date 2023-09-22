@@ -1,62 +1,32 @@
-import { Box, Heading, ChakraProvider, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, IconButton, Text, useDisclosure, VStack } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { Box, Text, useDisclosure } from "@chakra-ui/react";
+import Header from "@/components/Header";
+import SideMenu from "@/components/SideMenu";
+import DarkGradientContainer from "@/components/molecules/DarkGradientContainer";
+import DrawerMenu from "@/components/DrawerMenu";
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <ChakraProvider>
-      <Heading as="h1" size="xl" mb="4" height={{ base: '80px' }}>
-        <IconButton
-          icon={<HamburgerIcon />}
-          display={{ base: "block", lg: "none" }}
-          onClick={onOpen}
-          aria-label="Abrir menú"
-        />
-      </Heading>
+    <Box padding={{ base: '16px' }} bg='shark'>
+      <Header onOpen={onOpen} />
 
-      <Box display="flex">
-        {/* Menú Lateral */}
-        <Box
-          bg="gray.200"
-          w={{ base: "0", lg: "250px" }}
-          h="100vh"
-          p="4"
-          display={{ base: "none", lg: "block" }}
+      <Box display="flex" marginY={{ base: '16px' }}>
+        <DarkGradientContainer
+          width={{ base: "0", lg: "250px" }}
+          padding={{ base: '32px 24px' }}
+          height="732px"
+          overflow={{ base: 'scroll' }}
         >
-          <VStack align="start" spacing="4">
-            {/* Agrega aquí tus elementos de menú */}
-            <Text>Elemento 1</Text>
-            <Text>Elemento 2</Text>
-            <Text>Elemento 3</Text>
-          </VStack>
-        </Box>
+          <SideMenu />
+        </DarkGradientContainer>
 
-        {/* Contenido */}
         <Box flex="1" p="4">
-
-          {/* Agrega aquí el contenido de tu página */}
           <Text>Contenido de la página</Text>
         </Box>
       </Box>
-
-      {/* Cajón de menú para pantallas pequeñas */}
-      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerHeader>Menú</DrawerHeader>
-            <DrawerBody>
-              <VStack align="start" spacing="4">
-                {/* Agrega aquí tus elementos de menú */}
-                <Text>Elemento 1</Text>
-                <Text>Elemento 2</Text>
-                <Text>Elemento 3</Text>
-              </VStack>
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-    </ChakraProvider>
+      <DrawerMenu onClose={onClose} isOpen={isOpen} />
+    </Box>
   );
 }
 
